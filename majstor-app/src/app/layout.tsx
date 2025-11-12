@@ -10,7 +10,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "MajstorApp",
   description: "Aplikacija za upravljanje poslovima kućnog majstora.",
-  icons: [{ rel: 'icon', url: '/favicon.ico' }],
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
