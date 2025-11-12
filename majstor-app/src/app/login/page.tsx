@@ -17,7 +17,7 @@ export default function LoginPage() {
     e.preventDefault();
     if (username === 'Rados' && password === 'Kodar123') {
       localStorage.setItem('user', JSON.stringify({ username }));
-      router.push('/');
+      router.push('/dashboard');
     } else {
       setError('Pogrešno korisničko ime ili lozinka.');
     }
