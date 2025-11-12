@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = 'force-dynamic';
+
 import withAuth from '@/components/auth/withAuth';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
