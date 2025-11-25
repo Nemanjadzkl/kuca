@@ -3,6 +3,7 @@
 import withAuth from '@/components/withAuth';
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
+import ClientLeaderboard from '@/components/ClientLeaderboard';
 
 function IzvestajiPage() {
   const [period, setPeriod] = useState('tekuci_mesec');
@@ -49,6 +50,7 @@ function IzvestajiPage() {
           </div>
         </div>
       )}
+      <ClientLeaderboard />
     </div>
   );
 }

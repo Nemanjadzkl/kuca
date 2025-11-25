@@ -91,3 +91,24 @@ BEGIN
     FROM poslovi;
 END;
 $$ LANGUAGE plpgsql;
+
+-- Funkcija za generisanje rang liste klijenata po zaradi
+CREATE OR REPLACE FUNCTION get_client_leaderboard()
+RETURNS TABLE(naziv_klijenta TEXT, total_zarada NUMERIC) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT
+        k.naziv,
+        COALESCE(SUM(p.ukupan_iznos), 0) as total_zarada
+    FROM
+        klijenti k
+    JOIN
+        poslovi p ON k.id = p.klijent_id
+    WHERE
+        p.status = 'naplaceno'
+    GROUP BY
+        k.naziv
+    ORDER BY
+        total_zarada DESC;
+END;
+$$ LANGUAGE plpgsql;
